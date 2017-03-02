@@ -3,7 +3,6 @@ package house.naturalaquarium;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
-import android.support.v4.app.FragmentManager;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -18,44 +17,44 @@ import com.mikepenz.materialdrawer.model.PrimaryDrawerItem;
 import com.mikepenz.materialdrawer.model.SecondaryDrawerItem;
 import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem;
 
-import house.naturalaquarium.adapter.TabFragmentFish;
 import house.naturalaquarium.adapter.TabFragmentAdapterPlants;
+import house.naturalaquarium.adapter.TabFragmentFish;
 
 public class MainActivity extends AppCompatActivity {
 
-            private static final int LAYOUT = R.layout.activity_main;
+    private static final int LAYOUT = R.layout.activity_main;
 
-            private Drawer.Result drawerMenu;
-            private ViewPager viewPager;
-            private Toolbar toolbar;
-            private TabLayout tabLayout;
-
-
-            @Override
-            protected void onCreate(Bundle savedInstanceState) {
-                setTheme(R.style.myTheme2);
-                super.onCreate(savedInstanceState);
-                setContentView(LAYOUT);
-                initTabs();
+    private Drawer.Result drawerMenu;
+    private ViewPager viewPager;
+    private Toolbar toolbar;
+    private TabLayout tabLayout;
 
 
-                // Инициализируем Toolbar
-                toolbar = (Toolbar)findViewById(R.id.toolbar);
-                if (toolbar !=null) {
-                    setSupportActionBar(toolbar);
-                    getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-                }
-
-                initializeNavigationDrawer(toolbar);
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        setTheme(R.style.myTheme2);
+        super.onCreate(savedInstanceState);
+        setContentView(LAYOUT);
+        initTabs();
 
 
-            }
+        // Инициализируем Toolbar
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
+        if (toolbar != null) {
+            setSupportActionBar(toolbar);
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        }
+
+        initializeNavigationDrawer(toolbar);
+
+
+    }
 
     private void initTabs() {
         viewPager = (ViewPager) findViewById(R.id.viewPager);
         // Инициализируем TabLayout
 
-        tabLayout = (TabLayout)findViewById(R.id.tabLayout);
+        tabLayout = (TabLayout) findViewById(R.id.tabLayout);
         TabFragmentFish adapter = new TabFragmentFish(getSupportFragmentManager());
         viewPager.setAdapter(adapter);
         tabLayout.setupWithViewPager(viewPager);
@@ -73,7 +72,7 @@ public class MainActivity extends AppCompatActivity {
 
     //Инициализация Дравера
     private void initializeNavigationDrawer(Toolbar toolbar) {
-                drawerMenu = new Drawer()
+        drawerMenu = new Drawer()
                 .withActivity(this)
                 .withToolbar(toolbar)
                 .withActionBarDrawerToggle(true)
@@ -113,46 +112,44 @@ public class MainActivity extends AppCompatActivity {
                         new SecondaryDrawerItem()
                                 .withIdentifier(8)
                                 .withName(R.id.exit))
-                        //Реализуем клик по айтэмам
-                        .withOnDrawerItemClickListener(new Drawer.OnDrawerItemClickListener() {
-                            @Override
-                            public void onItemClick(AdapterView<?> parent, View view, int position, long id, IDrawerItem drawerItem) {
-                                switch (drawerItem.getIdentifier()){
-                                    case 1:
-                                        TabFragmentFish adapter = new TabFragmentFish(getSupportFragmentManager());
-                                        viewPager.setAdapter(adapter);
-                                        tabLayout.setupWithViewPager(viewPager);
-                                        break;
-
-                                    case 2:
-                                        TabFragmentAdapterPlants adapterPlants = new TabFragmentAdapterPlants(getSupportFragmentManager());
-                                        viewPager.setAdapter(adapterPlants);
-                                        tabLayout.setupWithViewPager(viewPager);
-                                        break;
-
-                                    //Мини окошко "Об авторе с закрытием ОК"
-                                    case 7:
-                                        AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this, R.style.AppCompatAlertDialogStyle);
-                                        builder
-                                                .setTitle("Об авторе")
-                                                .setMessage("Автор:Артем Мишуровский"+"\n\nEmail: artm.mishurovskiy@gmail.com")
-                                                .setCancelable(false)
-                                                .setNegativeButton("Ок", new DialogInterface.OnClickListener() {
-                                                    @Override
-                                                    public void onClick(DialogInterface dialogInterface, int i) {
-                                                        dialogInterface.cancel();
-                                                    }
-                                                });
-                                        AlertDialog alertDialog = builder.create();
-                                        alertDialog.show();
-                                        break;
-                                    //Выход из программы
-                                    case 8:
-                                        finish();
-                                        break;
-                                }
-                            }
-                        })
+                //Реализуем клик по айтэмам
+                .withOnDrawerItemClickListener(new Drawer.OnDrawerItemClickListener() {
+                    @Override
+                    public void onItemClick(AdapterView<?> parent, View view, int position, long id, IDrawerItem drawerItem) {
+                        switch (drawerItem.getIdentifier()) {
+                            case 1:
+                                TabFragmentFish adapter = new TabFragmentFish(getSupportFragmentManager());
+                                viewPager.setAdapter(adapter);
+                                tabLayout.setupWithViewPager(viewPager);
+                                break;
+                            case 2:
+                                TabFragmentAdapterPlants adapterPlants = new TabFragmentAdapterPlants(getSupportFragmentManager());
+                                viewPager.setAdapter(adapterPlants);
+                                tabLayout.setupWithViewPager(viewPager);
+                                break;
+                            //Мини окошко "Об авторе с закрытием ОК"
+                            case 7:
+                                AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this, R.style.AppCompatAlertDialogStyle);
+                                builder
+                                        .setTitle("Об авторе")
+                                        .setMessage("Автор:Артем Мишуровский" + "\n\nEmail: artm.mishurovskiy@gmail.com")
+                                        .setCancelable(false)
+                                        .setNegativeButton("Ок", new DialogInterface.OnClickListener() {
+                                            @Override
+                                            public void onClick(DialogInterface dialogInterface, int i) {
+                                                dialogInterface.cancel();
+                                            }
+                                        });
+                                AlertDialog alertDialog = builder.create();
+                                alertDialog.show();
+                                break;
+                            //Выход из программы
+                            case 8:
+                                finish();
+                                break;
+                        }
+                    }
+                })
                 .build();
 
     }

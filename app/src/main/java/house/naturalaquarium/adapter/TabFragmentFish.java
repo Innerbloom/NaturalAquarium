@@ -3,14 +3,14 @@ package house.naturalaquarium.adapter;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.app.FragmentStatePagerAdapter;
 
 import house.naturalaquarium.fragmentsFish.AquaFish;
 import house.naturalaquarium.fragmentsFish.FishDisease;
 import house.naturalaquarium.fragmentsFish.ReproductionFish;
 
 
-public class TabFragmentFish extends FragmentPagerAdapter{
+public class TabFragmentFish extends FragmentStatePagerAdapter {
 
     //Создаем массив табс
     private String[] tabs;
@@ -31,7 +31,6 @@ public class TabFragmentFish extends FragmentPagerAdapter{
     public CharSequence getPageTitle(int position) {
         return tabs[position];
     }
-
 
     //Переключение между фрагменами с помощью позиции 0,1,2
     @Override
