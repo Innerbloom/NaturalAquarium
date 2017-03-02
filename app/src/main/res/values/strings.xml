@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Directory of aquarist</string>
+    <string name="aqua_fish">Аквариумные рыбки</string>
+    <string name="aqua_plant">Аквариумные растения</string>
+    <string name="aqua_water">Вода</string>
+    <string name="aqua_lighting">Освещение</string>
+    <string name="aqua_co2">Удобрения и СО2</string>
+    <string name="aqua_filtration">Фильтрация и аэрация</string>
+    <string name="about">Об авторе</string>
+    <string name="exit">Выход</string>
+</resources>

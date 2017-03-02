@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="aqua_fish" type="id">Аквариумные рыбки</item>
+    <item name="aqua_plant" type="id">Аквариумные растения</item>
+    <item name="aqua_water" type="id">Вода</item>
+    <item name="aqua_lighting" type="id">Освещение</item>
+    <item name="aqua_co2" type="id">Удобрения и СО2</item>
+    <item name="aqua_filtration" type="id">Фильтрация и аэрация</item>
+    <item name="about" type="id">Об авторе</item>
+    <item name="exit" type="id">Выход</item>
+</resources>
